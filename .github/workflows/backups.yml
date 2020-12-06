@@ -50,4 +50,4 @@ jobs:
         run: pwd && ls -all
       
       - name: Uploading blob container
-        run: az storage blob upload --account-name mysqlbackups007 --container-name database-backups --name edc-demo_backup.sql --file edc-demo_backup.sql
+        run: az storage blob upload --account-name mysqlbackups007 --container-name database-backups --name edc-demo_backup.sql --file edc-demo_backup.sql --auth-mode key
