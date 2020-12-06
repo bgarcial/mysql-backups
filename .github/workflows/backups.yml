@@ -39,7 +39,7 @@ jobs:
         run: pwd && ls -all
       
       # Sync
-      #- name: Sync Groups/Members
-      #  run: python ../draft/mysql_backup_db.py
-      #  env:
-      #    MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
+      - name: Making backup
+        run: python mysql_backup_db.py
+        env:
+          MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
