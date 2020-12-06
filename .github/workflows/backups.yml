@@ -25,6 +25,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: Executing Azure cli installation script
+        run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+      
+      - name: Authenticating to Azure Platform | az login
+        run: az login --service-principal --username ${{ secrets.SERVICE_PRINCIPAL_CLIENT_ID }} --password ${{ secrets.SERVICE_PRINCIPAL_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
       # Setup Python
       - name: Setup Python
         uses: actions/setup-python@v2
@@ -43,3 +48,11 @@ jobs:
       
       - name: Getting path
         run: pwd && ls -all
+      
+      - name: Uploading blob container
+        run: az storage blob upload \
+            --account-name mysqlbackups007 \
+            --container-name database-backups \
+            --name edc-demo_backup.sql \
+            --file edc-demo_backup.sql \
+            --auth-mode login
