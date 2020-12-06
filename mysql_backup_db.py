@@ -12,4 +12,5 @@ def database_backup():
     print(welcome)
     rc = call(["./sample.sh", str(password)])
 
-database_backup()
+# Calling function
+database_backup() 
