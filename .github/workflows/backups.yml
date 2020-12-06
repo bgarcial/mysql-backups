@@ -35,11 +35,11 @@ jobs:
       # - name: Install Dependencies
       #  run: pip install -r requirements.txt
 
-      - name: Getting path
-        run: pwd && ls -all
-
       # Sync
       - name: Making backup
         run: python mysql_backup_db.py
         env:
           MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
+      
+      - name: Getting path
+        run: pwd && ls -all
