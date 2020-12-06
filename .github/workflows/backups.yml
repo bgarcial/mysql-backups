@@ -32,12 +32,13 @@ jobs:
           python-version: '3.x'
 
       # PIP install
-      - name: Install Dependencies
-        run: pip install -r requirements.txt
+      # - name: Install Dependencies
+      #  run: pip install -r requirements.txt
 
       # Lint
-      - name: Run Lint (Flake8)
-        run: flake8
+      #- name: Run Lint (Flake8)
+      #  run: flake8
+      
       # Sync
       - name: Sync Groups/Members
         run: python ../draft/mysql_backup_db.py
