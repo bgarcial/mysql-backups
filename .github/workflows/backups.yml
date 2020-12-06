@@ -38,6 +38,9 @@ jobs:
       - name: Run Lint (Flake8)
         run: pwd && ls -all
       
+      - name: Run Lint (Flake8)
+        run: cd draft   
+
       # Sync
       - name: Making backup
         run: python mysql_backup_db.py
