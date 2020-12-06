@@ -35,12 +35,11 @@ jobs:
       # - name: Install Dependencies
       #  run: pip install -r requirements.txt
 
-      # Lint
-      #- name: Run Lint (Flake8)
-      #  run: flake8
+      - name: Run Lint (Flake8)
+        run: pwd && ls -all
       
       # Sync
-      - name: Sync Groups/Members
-        run: python ../draft/mysql_backup_db.py
-        env:
-          MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
+      #- name: Sync Groups/Members
+      #  run: python ../draft/mysql_backup_db.py
+      #  env:
+      #    MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
